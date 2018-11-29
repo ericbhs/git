@@ -49,12 +49,13 @@
 <li><a class="reference internal" href="#push" id="id11"><code class="docutils literal notranslate"><span class="pre">push</span></code></a></li>
 <li><a class="reference internal" href="#pull" id="id12"><code class="docutils literal notranslate"><span class="pre">pull</span></code></a></li>
 <li><a class="reference internal" href="#branch" id="id13"><code class="docutils literal notranslate"><span class="pre">branch</span></code></a></li>
-<li><a class="reference internal" href="#merge" id="id14"><code class="docutils literal notranslate"><span class="pre">merge</span></code></a></li>
-<li><a class="reference internal" href="#blame" id="id15"><code class="docutils literal notranslate"><span class="pre">blame</span></code></a></li>
-<li><a class="reference internal" href="#show" id="id16"><code class="docutils literal notranslate"><span class="pre">show</span></code></a></li>
-<li><a class="reference internal" href="#stash" id="id17"><code class="docutils literal notranslate"><span class="pre">stash</span></code></a></li>
-<li><a class="reference internal" href="#recuperer-et-contribuer-a-un-projet" id="id18">Récupérer et contribuer à un projet</a></li>
-<li><a class="reference internal" href="#diff" id="id19"><code class="docutils literal notranslate"><span class="pre">diff</span></code></a></li>
+<li><a class="reference internal" href="#push-a-new-local-branch-to-a-remote-git-repository-and-track-it-too" id="id14">Push a new local branch to a remote Git repository and track it too</a></li>
+<li><a class="reference internal" href="#merge" id="id15"><code class="docutils literal notranslate"><span class="pre">merge</span></code></a></li>
+<li><a class="reference internal" href="#blame" id="id16"><code class="docutils literal notranslate"><span class="pre">blame</span></code></a></li>
+<li><a class="reference internal" href="#show" id="id17"><code class="docutils literal notranslate"><span class="pre">show</span></code></a></li>
+<li><a class="reference internal" href="#stash" id="id18"><code class="docutils literal notranslate"><span class="pre">stash</span></code></a></li>
+<li><a class="reference internal" href="#recuperer-et-contribuer-a-un-projet" id="id19">Récupérer et contribuer à un projet</a></li>
+<li><a class="reference internal" href="#diff" id="id20"><code class="docutils literal notranslate"><span class="pre">diff</span></code></a></li>
 </ul>
 </div>
 <p><em>index/staging</em> : ce qui garde la liste de ce que git doit garder en mémoire
@@ -195,8 +196,18 @@ git checkout ma-branche
 </dd>
 </dl>
 </div>
+<div class="section" id="push-a-new-local-branch-to-a-remote-git-repository-and-track-it-too">
+<h2><a class="toc-backref" href="#id14">Push a new local branch to a remote Git repository and track it too</a><a class="headerlink" href="#push-a-new-local-branch-to-a-remote-git-repository-and-track-it-too" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new branch:</span>
+git checkout -b feature_branch_name
+<span class="c1"># Edit, add and commit your files.</span>
+<span class="c1"># Push your branch to the remote repository:</span>
+git push -u origin feature_branch_name
+</pre></div>
+</div>
+</div>
 <div class="section" id="merge">
-<h2><a class="toc-backref" href="#id14"><code class="docutils literal notranslate"><span class="pre">merge</span></code></a><a class="headerlink" href="#merge" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id15"><code class="docutils literal notranslate"><span class="pre">merge</span></code></a><a class="headerlink" href="#merge" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">ma-branche</span></code></p>
 <blockquote>
 <div><ul class="simple">
@@ -216,7 +227,7 @@ git checkout ma-branche
 <p><em>Rem</em> : HEAD = l’endroit où je me situe</p>
 </div>
 <div class="section" id="blame">
-<h2><a class="toc-backref" href="#id15"><code class="docutils literal notranslate"><span class="pre">blame</span></code></a><a class="headerlink" href="#blame" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id16"><code class="docutils literal notranslate"><span class="pre">blame</span></code></a><a class="headerlink" href="#blame" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">blame</span> <span class="pre">mon-fichier.txt</span></code></p>
 <blockquote>
 <div><ul class="simple">
@@ -226,7 +237,7 @@ git checkout ma-branche
 </div></blockquote>
 </div>
 <div class="section" id="show">
-<h2><a class="toc-backref" href="#id16"><code class="docutils literal notranslate"><span class="pre">show</span></code></a><a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id17"><code class="docutils literal notranslate"><span class="pre">show</span></code></a><a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">show</span> <span class="pre">SHADuCommit</span></code></dt>
 <dd>permet de voir le contenu exact du commit dont le SHA est <code class="docutils literal notranslate"><span class="pre">SHADuCommit</span></code></dd>
@@ -241,7 +252,7 @@ git checkout ma-branche
 <p><strong>Attention : ne jamais versionner les fichiers de configuration</strong></p>
 </div>
 <div class="section" id="stash">
-<h2><a class="toc-backref" href="#id17"><code class="docutils literal notranslate"><span class="pre">stash</span></code></a><a class="headerlink" href="#stash" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id18"><code class="docutils literal notranslate"><span class="pre">stash</span></code></a><a class="headerlink" href="#stash" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code></p>
 <blockquote>
 <div><ul class="simple">
@@ -264,13 +275,13 @@ git checkout ma-branche
 </dl>
 </div>
 <div class="section" id="recuperer-et-contribuer-a-un-projet">
-<h2><a class="toc-backref" href="#id18">Récupérer et contribuer à un projet</a><a class="headerlink" href="#recuperer-et-contribuer-a-un-projet" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">Récupérer et contribuer à un projet</a><a class="headerlink" href="#recuperer-et-contribuer-a-un-projet" title="Permalink to this headline">¶</a></h2>
 <p><strong>Github</strong> : faire un “fork” = faire une copie d’un repo et le mettre sur mon compte à moi</p>
 <p>Pour voir comment le créateur du code a voulu que se fassent les contributions : cf readme.md &gt; contributing</p>
 <p>Pour soumettre notre contribution : “Create pull request” sur github</p>
 </div>
 <div class="section" id="diff">
-<h2><a class="toc-backref" href="#id19"><code class="docutils literal notranslate"><span class="pre">diff</span></code></a><a class="headerlink" href="#diff" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id20"><code class="docutils literal notranslate"><span class="pre">diff</span></code></a><a class="headerlink" href="#diff" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> ou <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">--cached</span></code></dt>
 <dd>visualiser la différence entre l’état courant du répertoire et ce qui a été indexé pour le prochain commit</dd>

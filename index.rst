@@ -153,6 +153,18 @@ This is needed for the first pushes
 		
 		git branch ma-branche
 		git checkout ma-branche
+        
+Push a new local branch to a remote Git repository and track it too
+-------------------------------------------------------------------
+
+.. code-block:: bash
+    
+    # Create a new branch:
+    git checkout -b feature_branch_name
+    # Edit, add and commit your files.
+    # Push your branch to the remote repository:
+    git push -u origin feature_branch_name
+
 	
 ``merge``
 ---------
