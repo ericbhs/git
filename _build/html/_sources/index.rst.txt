@@ -238,6 +238,24 @@ Pour soumettre notre contribution : "Create pull request" sur github
 
 ``git diff`` ou ``git diff --cached``
 	visualiser la différence entre l'état courant du répertoire et ce qui a été indexé pour le prochain commit
+    
+``cherri-pick`` : apply the changes of a particular commit
+----------------------------------------------------------
+
+``git cherry-pick <SHAducommit>``
+    
+Move some commits to another branch and force push the result
+-------------------------------------------------------------
+
+.. code-block:: bash
+    
+    git reset --keep HEAD~3         # 3 is for the last 3 commits
+    git checkout -t -b newbranch    # Create a new branch and checkout on it
+    git cherry-pick <SHA commit 1>  # apply the changes of each commit on the branch
+    git cherry-pick <SHA commit 2>
+    git cherry-pick <SHA commit 3>
+    git push origin +master         # force push master on origin (might need to unprotect the branch on remote)
+    git push origin newbranch       # push newbranch on origin
 
 
 Indices and tables

@@ -56,6 +56,8 @@
 <li><a class="reference internal" href="#stash" id="id18"><code class="docutils literal notranslate"><span class="pre">stash</span></code></a></li>
 <li><a class="reference internal" href="#recuperer-et-contribuer-a-un-projet" id="id19">Récupérer et contribuer à un projet</a></li>
 <li><a class="reference internal" href="#diff" id="id20"><code class="docutils literal notranslate"><span class="pre">diff</span></code></a></li>
+<li><a class="reference internal" href="#cherri-pick-apply-the-changes-of-a-particular-commit" id="id21"><code class="docutils literal notranslate"><span class="pre">cherri-pick</span></code> : apply the changes of a particular commit</a></li>
+<li><a class="reference internal" href="#move-some-commits-to-another-branch-and-force-push-the-result" id="id22">Move some commits to another branch and force push the result</a></li>
 </ul>
 </div>
 <p><em>index/staging</em> : ce qui garde la liste de ce que git doit garder en mémoire
@@ -286,6 +288,22 @@ git push -u origin feature_branch_name
 <dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> ou <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">--cached</span></code></dt>
 <dd>visualiser la différence entre l’état courant du répertoire et ce qui a été indexé pour le prochain commit</dd>
 </dl>
+</div>
+<div class="section" id="cherri-pick-apply-the-changes-of-a-particular-commit">
+<h2><a class="toc-backref" href="#id21"><code class="docutils literal notranslate"><span class="pre">cherri-pick</span></code> : apply the changes of a particular commit</a><a class="headerlink" href="#cherri-pick-apply-the-changes-of-a-particular-commit" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">cherry-pick</span> <span class="pre">&lt;SHAducommit&gt;</span></code></p>
+</div>
+<div class="section" id="move-some-commits-to-another-branch-and-force-push-the-result">
+<h2><a class="toc-backref" href="#id22">Move some commits to another branch and force push the result</a><a class="headerlink" href="#move-some-commits-to-another-branch-and-force-push-the-result" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git reset --keep HEAD~3         <span class="c1"># 3 is for the last 3 commits</span>
+git checkout -t -b newbranch    <span class="c1"># Create a new branch and checkout on it</span>
+git cherry-pick &lt;SHA commit <span class="m">1</span>&gt;  <span class="c1"># apply the changes of each commit on the branch</span>
+git cherry-pick &lt;SHA commit <span class="m">2</span>&gt;
+git cherry-pick &lt;SHA commit <span class="m">3</span>&gt;
+git push origin +master         <span class="c1"># force push master on origin (might need to unprotect the branch on remote)</span>
+git push origin newbranch       <span class="c1"># push newbranch on origin</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="indices-and-tables">
