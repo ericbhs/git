@@ -256,6 +256,28 @@ Move some commits to another branch and force push the result
     git cherry-pick <SHA commit 3>
     git push origin +master         # force push master on origin (might need to unprotect the branch on remote)
     git push origin newbranch       # push newbranch on origin
+	
+Show a list of all tracked files
+--------------------------------
+
+.. code-block:: bash
+
+	git ls-tree --full-tree -r --name-only HEAD
+	
+Remove all tracked files from the index
+---------------------------------------
+
+.. code-block:: bash
+
+	git rm -r --cached .
+	
+
+* ``rm`` is the remove command
+* ``-r`` will allow recursive removal
+* ``–cached`` will only remove files from the index. Your files will still be there.
+* The ``.`` indicates that all files will be untracked. You can untrack a specific file with git rm --cached foo.txt (thanks @amadeann).
+
+The ``rm`` command can be unforgiving. If you wish to try what it does beforehand, add the ``-n`` or ``--dry-run`` flag to test things out.
 
 
 Indices and tables

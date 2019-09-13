@@ -58,6 +58,8 @@
 <li><a class="reference internal" href="#diff" id="id20"><code class="docutils literal notranslate"><span class="pre">diff</span></code></a></li>
 <li><a class="reference internal" href="#cherri-pick-apply-the-changes-of-a-particular-commit" id="id21"><code class="docutils literal notranslate"><span class="pre">cherri-pick</span></code> : apply the changes of a particular commit</a></li>
 <li><a class="reference internal" href="#move-some-commits-to-another-branch-and-force-push-the-result" id="id22">Move some commits to another branch and force push the result</a></li>
+<li><a class="reference internal" href="#show-a-list-of-all-tracked-files" id="id23">Show a list of all tracked files</a></li>
+<li><a class="reference internal" href="#remove-all-tracked-files-from-the-index" id="id24">Remove all tracked files from the index</a></li>
 </ul>
 </div>
 <p><em>index/staging</em> : ce qui garde la liste de ce que git doit garder en mémoire
@@ -304,6 +306,25 @@ git push origin +master         <span class="c1"># force push master on origin (
 git push origin newbranch       <span class="c1"># push newbranch on origin</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="show-a-list-of-all-tracked-files">
+<h2><a class="toc-backref" href="#id23">Show a list of all tracked files</a><a class="headerlink" href="#show-a-list-of-all-tracked-files" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git ls-tree --full-tree -r --name-only HEAD
+</pre></div>
+</div>
+</div>
+<div class="section" id="remove-all-tracked-files-from-the-index">
+<h2><a class="toc-backref" href="#id24">Remove all tracked files from the index</a><a class="headerlink" href="#remove-all-tracked-files-from-the-index" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git rm -r --cached .
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">rm</span></code> is the remove command</li>
+<li><code class="docutils literal notranslate"><span class="pre">-r</span></code> will allow recursive removal</li>
+<li><code class="docutils literal notranslate"><span class="pre">–cached</span></code> will only remove files from the index. Your files will still be there.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">.</span></code> indicates that all files will be untracked. You can untrack a specific file with git rm –cached foo.txt (thanks &#64;amadeann).</li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">rm</span></code> command can be unforgiving. If you wish to try what it does beforehand, add the <code class="docutils literal notranslate"><span class="pre">-n</span></code> or <code class="docutils literal notranslate"><span class="pre">--dry-run</span></code> flag to test things out.</p>
 </div>
 </div>
 <div class="section" id="indices-and-tables">
