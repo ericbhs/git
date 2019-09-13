@@ -279,6 +279,11 @@ Remove all tracked files from the index
 
 The ``rm`` command can be unforgiving. If you wish to try what it does beforehand, add the ``-n`` or ``--dry-run`` flag to test things out.
 
+Remove Windows credentials
+--------------------------
+
+Start Menu > Credential Manager > Windows Credentials > ... > Remove
+
 
 Indices and tables
 ==================
