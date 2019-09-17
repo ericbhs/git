@@ -284,6 +284,33 @@ Remove Windows credentials
 
 Start Menu > Credential Manager > Windows Credentials > ... > Remove
 
+Move commits to another branch
+------------------------------
+
+from...
+
+.. code-block:: bash
+	
+	master A - B - C - D - E
+	
+to...
+
+.. code-block:: bash
+					
+	newbranch      C - D - E
+	              /
+	master   A - B
+	
+do...
+
+.. code-block:: bash
+
+	git checkout existingbranch # checkout existingbranch
+	git merge master            # merge with master to "save" the 3 last commits on existingbranch
+	git checkout master         # checkout to master
+	git reset --hard HEAD~3     # Go back 3 commits. You *will* lose uncommitted work.
+	                            # alternative : git reset --hard <commit SHA>
+	git checkout existingbranch
 
 Indices and tables
 ==================

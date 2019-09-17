@@ -61,6 +61,7 @@
 <li><a class="reference internal" href="#show-a-list-of-all-tracked-files" id="id23">Show a list of all tracked files</a></li>
 <li><a class="reference internal" href="#remove-all-tracked-files-from-the-index" id="id24">Remove all tracked files from the index</a></li>
 <li><a class="reference internal" href="#remove-windows-credentials" id="id25">Remove Windows credentials</a></li>
+<li><a class="reference internal" href="#move-commits-to-another-branch" id="id26">Move commits to another branch</a></li>
 </ul>
 </div>
 <p><em>index/staging</em> : ce qui garde la liste de ce que git doit garder en mémoire
@@ -330,6 +331,28 @@ git push origin newbranch       <span class="c1"># push newbranch on origin</spa
 <div class="section" id="remove-windows-credentials">
 <h2><a class="toc-backref" href="#id25">Remove Windows credentials</a><a class="headerlink" href="#remove-windows-credentials" title="Permalink to this headline">¶</a></h2>
 <p>Start Menu &gt; Credential Manager &gt; Windows Credentials &gt; … &gt; Remove</p>
+</div>
+<div class="section" id="move-commits-to-another-branch">
+<h2><a class="toc-backref" href="#id26">Move commits to another branch</a><a class="headerlink" href="#move-commits-to-another-branch" title="Permalink to this headline">¶</a></h2>
+<p>from…</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>master A - B - C - D - E
+</pre></div>
+</div>
+<p>to…</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>newbranch      C - D - E
+              /
+master   A - B
+</pre></div>
+</div>
+<p>do…</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout existingbranch <span class="c1"># checkout existingbranch</span>
+git merge master            <span class="c1"># merge with master to &quot;save&quot; the 3 last commits on existingbranch</span>
+git checkout master         <span class="c1"># checkout to master</span>
+git reset --hard HEAD~3     <span class="c1"># Go back 3 commits. You *will* lose uncommitted work.</span>
+                            <span class="c1"># alternative : git reset --hard &lt;commit SHA&gt;</span>
+git checkout existingbranch
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="indices-and-tables">
